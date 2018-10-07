@@ -1,8 +1,60 @@
-\documentclass{jsarticle}
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage{amsmath} % alignに必要
+\usepackage{tikz} % 画像
 \begin{document}
 
-Hello こんにちわ \TeX !
+\section{Algorithm}
 
-\[ \int dx = x + C \]
+\subsection{$\mathcal{O}$ notation}
+
+与えられた関数$g(n)$に対して、$\mathcal{O}(g(n))$によって関数の集合
+
+
+\[ \mathcal{O}(g(n)) = \{ f(n): ある正の定数c, n_0が存在して、すべてのn \ge n_0に対して0 \le f(n) \le cg(n)を満たす\} \]
+
+
+を表現する。
+
+入力が一定数以下はオーバーヘッドがあったりで、ノイズなので入力が一定数以上を表現するために$n_0$を設けている。
+
+\section{統計}
+
+\subsection{条件つき確率}
+
+2つの事象A,Bに対し、Aが起こった状況のもとでBが起こる条件つき確率といい、以下のように表す
+
+\[ P(B|A) = \frac{P(A \cap B) }{P(A)} \]
+
+考え方としては、$P(B|A)$をgivenとして与えられている事象Aの個数と事象AかつBの個数と捉えて以下のように導く
+
+\begin{align*}
+  P(B|A) &= \frac{n(A\cap B)}{n(A)} \\
+         &= \frac{\frac{n(A\cap B)}{n(U)}}{\frac{n(A)}{n(U)}} \qquad \text{(分子,分母をn(U)で割る)} \\
+         &= \frac{P(A \cap B)}{P(A)}
+\end{align*}
+
+条件付き確率を以下の形にしたものを乗法定理という。
+
+\[ P(A \cap B) = P(B|A) \cdot P(A) \]
+
+\subsection{ベイズの定理}
+
+\begin{align*}
+  P(X \cap Y) &= \frac{n(X \cap Y)}{n(U)} \\
+  &= \frac{n(X \cap Y)}{1} \cdot \frac{1}{n(U)} \\
+  &= \frac{n(X \cap Y)}{n(X)} \cdot \frac{n(X)}{n(U)} \\
+  &= P(Y|X) \cdot P(X) \\
+  \text{同様に} \\
+  P(X \cap Y) &= \frac{n(X \cap Y)}{n(U)} \\
+  &= \frac{n(X \cap Y)}{1} \cdot \frac{1}{n(U)} \\
+  &= \frac{n(X \cap Y)}{n(Y)} \cdot \frac{n(Y)}{n(U)} \\
+  &= P(X|Y) \cdot P(Y) \\
+  \text{従って} \\
+  P(Y|X)P(X) &= P(X|Y)P(Y) \\
+  P(X|Y) &= P(X) \cdot \frac{P(Y|X)}{P(Y)}
+\end{align*}
+
+$P(X|Y)を事後確率、P(X)を事前確率という。この式を事後確率 = 事前確率 * 修正項とみることができる$ 
+
 \end{document}
  

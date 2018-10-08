@@ -1,6 +1,7 @@
 \documentclass[dvipdfmx]{jsarticle}
 \usepackage{amsmath} % alignに必要
 \usepackage{tikz} % 画像
+\usetikzlibrary{calc} % TikZに計算させる
 \begin{document}
 
 \section{Algorithm}
@@ -39,6 +40,9 @@
 
 \subsection{ベイズの定理}
 
+\newcommand{\highlight}[3][yellow]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!10](x){#2} node[below of=x, color=#1]{#3};}}
+
+
 \begin{align*}
   P(X \cap Y) &= \frac{n(X \cap Y)}{n(U)} \\
   &= \frac{n(X \cap Y)}{1} \cdot \frac{1}{n(U)} \\
@@ -51,10 +55,12 @@
   &= P(X|Y) \cdot P(Y) \\
   \text{従って} \\
   P(Y|X)P(X) &= P(X|Y)P(Y) \\
-  P(X|Y) &= P(X) \cdot \frac{P(Y|X)}{P(Y)}
+  \highlight[red]{$\displaystyle P(X|Y)$}{事後確率} &=
+    \highlight[red]{$\displaystyle P(X)$}{事前確率}
+    \cdot
+    \highlight[blue]{$\displaystyle \frac{P(Y|X)}{P(Y)}$}{修正項}
 \end{align*}
 
-$P(X|Y)を事後確率、P(X)を事前確率という。この式を事後確率 = 事前確率 * 修正項とみることができる$ 
 
 \end{document}
  

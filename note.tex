@@ -18,6 +18,34 @@
 
 入力が一定数以下はオーバーヘッドがあったりで、ノイズなので入力が一定数以上を表現するために$n_0$を設けている。
 
+\section{整数}
+
+\subsection{ユークリッド互除法}
+
+2つの整数a,bが与えられたとき、a,bの最大公約数が知りたい.a,bを以下のように表現したとき、aとbの公約数の集合はaとrの公約数の集合と等しくなる。
+
+\[ b = qa + r \ (0 <= r < a)\]
+
+証明
+$d | a \land d | b \equiv d | a \land d | r $を証明する。
+
+戦略として、 $(d | a \land d | b \rightarrow d | a \land d | r) \land (d | a \land d | r \rightarrow  d | a \land d | b) $を証明する。
+
+$d | a \land d | b \rightarrow d | a \land d | r$ の証明
+
+仮定より、$\exists q_a, q_b ( a = q_ad, b = q_bd)$
+
+\begin{align*}
+  b &= aq + r \\
+  q_bd &= (q_ad)q + r \qquad \text{(仮定からaとbを置換)} \\
+  r &= q_bd - qq_ad \\
+  r &= d(q_b - qq_a)
+\end{align*}
+ここで、 $q_b, q_a, q$ は整数であり、整数の掛け算、引き算は整数に閉じるので$(q_b - qq_a)$は整数
+  したがって、$\exists n ( r = dn) がいえるので、 d | r$がいえる。よって、
+  $d | a \land d | b \rightarrow d | a \land d | r$
+
+
 \section{統計}
 
 \subsection{条件つき確率}
@@ -42,7 +70,6 @@
 
 \newcommand{\highlight}[3][yellow]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!10](x){#2} node[below of=x, color=#1]{#3};}}
 
-
 \begin{align*}
   P(X \cap Y) &= \frac{n(X \cap Y)}{n(U)} \\
   &= \frac{n(X \cap Y)}{1} \cdot \frac{1}{n(U)} \\
@@ -61,6 +88,4 @@
     \highlight[blue]{$\displaystyle \frac{P(Y|X)}{P(Y)}$}{修正項}
 \end{align*}
 
-
 \end{document}
- 

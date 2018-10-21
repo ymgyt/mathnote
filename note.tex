@@ -22,17 +22,17 @@
 
 \subsection{ユークリッド互除法}
 
+\subsubsection{証明}
+
 2つの整数a,bが与えられたとき、a,bの最大公約数が知りたい.a,bを以下のように表現したとき、aとbの公約数の集合はaとrの公約数の集合と等しくなる。
 
 \[ b = qa + r \ (0 <= r < a)\]
 
-証明
 $d | a \land d | b \equiv d | a \land d | r $を証明する。
 
 戦略として、 $(d | a \land d | b \rightarrow d | a \land d | r) \land (d | a \land d | r \rightarrow  d | a \land d | b) $を証明する。
-
-$d | a \land d | b \rightarrow d | a \land d | r$ の証明
-
+\\\\
+(1) $d | a \land d | b \rightarrow d | a \land d | r$ の証明 \\
 仮定より、$\exists q_a, q_b ( a = q_ad, b = q_bd)$
 
 \begin{align*}
@@ -41,10 +41,23 @@ $d | a \land d | b \rightarrow d | a \land d | r$ の証明
   r &= q_bd - qq_ad \\
   r &= d(q_b - qq_a)
 \end{align*}
-ここで、 $q_b, q_a, q$ は整数であり、整数の掛け算、引き算は整数に閉じるので$(q_b - qq_a)$は整数
+ここで、 $q_b, q_a, q$ は整数であり、整数の掛け算、引き算は整数に閉じるので$(q_b - qq_a)$は整数。
   したがって、$\exists n ( r = dn) がいえるので、 d | r$がいえる。よって、
   $d | a \land d | b \rightarrow d | a \land d | r$
+\\\\
+(2) $d | a \land d | r \rightarrow d | a \land d | b$ の証明 \\
+仮定より、$\exists q_a, q_r ( a = q_ad, r = q_rd)$
 
+\begin{align*}
+  b &= aq + r \\
+  b &= (q_ad) + q_rd \qquad \text{(仮定からaとrを置換)} \\
+  b &= d(q_a + q_r)
+\end{align*}
+
+(1)と同様に、$q_a, q_r$は整数であり、整数に閉じるので、$(q_a + q_r)$は整数。したがって、 $\exists n ( b = dn)$がいえるので、 $d | b$が成り立つ。よって、 $d | a \land d | r \rightarrow d | a \land d | b$ がいえる。
+
+\subsubsection{帰結}
+ある2つの数a,bが与えられた時、aとbの約数はaとrの約数でもある。そしてrはbをaで割ったときの余りなのでaよりも小さい。そのため、問題をより小さい問題に言い換えることができる。またaとrの約数は、$a = d_1r + r_2$ とした場合 $rとr_2$の約数でもある。この操作を繰り返すと、diviser(最初のa)がtarget(最初のb)を割り切る(r=0)ときがきて、そのとき、diviserと0(r)がtargetとdiviserの約数となる。そしてそのときのdiviserを最大公約数と呼ぶ(定義)
 
 \section{統計}
 

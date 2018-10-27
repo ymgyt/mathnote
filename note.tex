@@ -1,6 +1,7 @@
 \documentclass[dvipdfmx]{jsarticle}
 \usepackage{amsmath} % alignに必要
 \usepackage{tikz} % 画像
+\usepackage{amssymb} % \mathbb に必要
 \usetikzlibrary{calc} % TikZに計算させる
 \begin{document}
 
@@ -19,6 +20,35 @@
 入力が一定数以下はオーバーヘッドがあったりで、ノイズなので入力が一定数以上を表現するために$n_0$を設けている。
 
 \section{整数}
+
+\subsection{素数}
+
+\subsubsection{定義}
+
+1以外の自然数で1と自身以外に正の約数をもたない数を素数(prime number)という。
+
+1でも素数でもない数を合成数(composite number)という。
+
+\subsubsection{素数の判定}
+
+$素数 \lor 合成数$ が成り立つので、合成するを判定することで素数の判定もできる。合成数の判定に合成数の以下の性質を利用する。
+
+\[Nが合成数 ならば 1 < a < \sqrt{N} を満たす約数aを1つ以上もつ\]
+
+\[1 < a < \sqrt{N}を満たす約数aが一つも存在しない ならば　Nは合成数でない(対偶) \]
+
+この性質から、ある整数Nにおいて、$[2, \sqrt{N}]$の範囲に約数がなければ、$Nは合成数でない \equiv 素数$ が成り立つ。以下証明
+
+Nは合成数なので、定義から1以外の2つの積に分解できる。小さいほうをaとすると
+
+\begin{align*}
+  N &= a \times b \qquad ( 1 < a \leq b, \ \ a, b \in\mathbb{Z}) \\
+  N &= a \times b \geq a \times a = a^2 \qquad \text{($1 < a \leq b $)} \\
+  N &\geq a^2 \\
+  a &\leq \sqrt{N}
+\end{align*}
+
+この事実を証明したので、心置きなく、素数判定のfor loopに対象判定Nの平方根を終了条件にできる。
 
 \subsection{ユークリッド互除法}
 
@@ -58,6 +88,14 @@ $d | a \land d | b \equiv d | a \land d | r $を証明する。
 
 \subsubsection{帰結}
 ある2つの数a,bが与えられた時、aとbの約数はaとrの約数でもある。そしてrはbをaで割ったときの余りなのでaよりも小さい。そのため、問題をより小さい問題に言い換えることができる。またaとrの約数は、$a = d_1r + r_2$ とした場合 $rとr_2$の約数でもある。この操作を繰り返すと、diviser(最初のa)がtarget(最初のb)を割り切る(r=0)ときがきて、そのとき、diviserと0(r)がtargetとdiviserの約数となる。そしてそのときのdiviserを最大公約数と呼ぶ(定義)
+
+\subsection{倍数の判定}
+
+3桁の数Nは 100a + 10b + c とあらわせる。
+
+$ N = 2(50a + 5b) + c$ とあらわせるので、Nが2の倍数になるかどうかは最後の桁が2の倍数かどうかによる。
+
+$ N = 100a + 10b + c = 99a + a + 9b + b + c = 3(33a + 3b) + a + b + c$ なので、各桁の数の合計が3の倍数になるかでNが3の倍数かどうか判定できる
 
 \section{統計}
 

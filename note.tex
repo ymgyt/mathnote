@@ -1,4 +1,5 @@
 \documentclass[dvipdfmx]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
 \usepackage{amsmath} % alignに必要
 \usepackage{tikz} % 画像
 \usepackage{amssymb} % \mathbb に必要
@@ -138,5 +139,127 @@ $ N = 100a + 10b + c = 99a + a + 9b + b + c = 3(33a + 3b) + a + b + c$ なので
     \cdot
     \highlight[blue]{$\displaystyle \frac{P(Y|X)}{P(Y)}$}{修正項}
 \end{align*}
+
+\section{Burn Mathclass}
+
+\subsection{分数}
+$\frac{1}{n}$ はnをかけると1になる数として定義する。これでうっかり騙されて割り算というものを使わされることを防げる。だから、$\frac{15}{72}は(15)(\frac{1}{72})$の略号でしかない。
+
+$\frac{ac}{bc} = \frac{a}{b}$ という分母と分子の共通の因子を約分できるというのは以下の操作から導ける.
+
+\[ \frac{ac}{bc} = (a)(c)(\frac{1}{b})(\frac{1}{c}) = (a)(c)(\frac{1}{c})(\frac{1}{b}) = (a)(\frac{1}{b}) = \frac{a}{b} \]
+
+$\frac{a + b}{c} = \frac{a}{c} + \frac{b}{c}$ は以下のように説明する。
+
+
+\[ \frac{a + b}{c} = (a + b)(\frac{1}{c}) = (a)(\frac{1}{c}) + (b)(\frac{1}{c}) = \frac{a}{c} + \frac{b}{c} \]
+
+\subsection{面積を発明する}
+
+長方形の"面積"がなんであろうと、それは長方形の横と縦の長さに左右される(無関係な"面積"を定義したければしてもよいが)。 この内容を略号を使って表すと
+
+\[A(l,w) =\ ?\]
+
+今、ある長方形の縦の長さをかえないで、横の長さを2倍すると、元の長方形が2つできるので面積は2倍になるはずと考える。また、横をそのままに縦を2倍しても面積は2倍になるはずなので、略号を使って表すと
+
+\begin{align*}
+  A(l,2w) &= 2A(l,w) \\
+  A(2l,w) &= 2A(l,w)
+\end{align*}
+
+そして、この文の2には特別な意味はなかったので、一般化すると
+
+\begin{align*}
+  A(l,\#w) &= \#A(l,w) \\
+  A(\#l,w) &= \#A(l,w)
+\end{align*}
+
+どんな数であろうとその数を装置の外にだせることがわかる。ここで、 $l = l \cdot 1$ とあらわせるので
+
+\[A(l,w) = lA(1,w) = lwA(1,1) \]
+
+この文は、は、長方形の面積は、縦かける横かける単位であることを表現している。
+
+\[ \frac{A(l,w)}{A(1,1)} = lw \]
+
+こう書き直すと、縦かける横の値は、$A(l,w)の中にA(1,1)$がいくついれられるかを表す比の表現とみることもできる。
+
+\subsection{傾きを定義してみよう}
+
+山を登る険しさ(傾き)は、垂直方向の移動距離だけ、あるいは水平方向の移動距離だけでは決まらない。これを傾き(S), 水平(h, horizontal), 垂直(v, vertical)で表すと
+
+\[ S(h,v) = \ ? \]
+
+直線では、どの2点間をとっても傾きは同じであってほしい。これを表すと
+
+\[ S(h,v) = S(2h, 2v) \]
+
+そして、抽象化すると
+
+\[ S(h,v) = S(\#h, \#v) \]
+
+傾きが何を意味するにしても、水平な線の傾きはゼロであったほうが直感に合致するので$S(h,v) = \frac{h}{v}$ は除外される。今のところの候補は
+
+\[ S(h,v) = \frac{v}{h} \]
+
+次に、水平距離を一定にして、垂直距離を\#倍にしたとき傾きも\#倍になってほしいので、以下の性質が必要
+
+\[ S(h,\#v) = \#S(h,v) \]
+
+仮に、垂直距離を2倍にしたときは(ここでは$S = (\frac{h}{v})^\#$ )の可能性を考慮にいれている)
+
+\[ S(h,2v) = (\frac{2v}{h})^\#  = 2^\#(\frac{v}{h})^\# = 2^\#S(h,v) \]
+
+日常の理解を成り立たせるにはこの結果が2になってほしいので\#は1になる。ここでも$\frac{v}{h}$ が生き残る
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm]{images/burn_math_1-8.png}
+  \label{fig:1-8}
+  \caption{captionだよ}
+\end{figure}
+
+\subsection{直線を表現してみよう}
+
+直線がある装置$M(x)$で表されているとする。どんな数$x, \tilde{x}$に対しても、以下がなりたつはず
+
+\[ \frac{(1点の垂直位置) - (もう1点の垂直位置)}{(1点の水平位置) - (もう1点の水平位置)} \equiv \frac{垂直距離}{水平距離} \equiv \frac{M(x) - M(\tilde{x})}{x - \tilde{x}}  = \# \]
+
+つまりどの2点間をえらんでも、傾きは一定(\#)となる。 そして、(たまたま) $\tilde{x}$が0の場合
+
+\begin{align*}
+  \frac{M(x) - M(0)}{x} = \# \\
+  M(x) = \#x + M(0)
+\end{align*}
+
+M(0)は一部でy切片とよばれ、\#とM(0)を別の略号に書き直すと
+
+\[ M(x) = ax + b \]
+
+となり、おなじみの直線の文になった。
+
+\subsection{近道の公式}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm]{images/burn_math_1-11.png}
+\end{figure}
+
+\begin{align*}
+  c^2 + 2ab &= a^2 + 2ab + b^2 \\
+  c^2 &= a^2 + b^2
+\end{align*}
+
+\section{微分}
+
+まがったグラフの傾きをどのように表現するか。まがっているものは扱えないので、ある1点を無限に拡大してそこに直線をみいだすというアプローチを採用する。そうすると点xでの傾きは
+
+\[ xにおけるMの傾向 \equiv \frac{極小垂直変位}{極小水平変位} \equiv \frac{垂直距離}{水平距離} \equiv \frac{M(x+極小) - M(x)}{(x + 極小) -x } \]
+
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm]{images/burn_math_2-1.png}
+\end{figure}
 
 \end{document}

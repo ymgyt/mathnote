@@ -186,6 +186,27 @@ $ N = 100a + 10b + c = 99a + a + 9b + b + c = 3(33a + 3b) + a + b + c$ なので
 
 \section{統計}
 
+\subsection{組み合わせの数}
+
+\[ \binom nr = \frac{n!}{r!(n-r)!} \]
+
+
+\subsubsection{組み合わせの漸化式}
+
+\[ \binom nr + \binom {n}{r+1} = \binom {n+1}{r+1} \]
+
+これは、$n+1 = n', r+1 = r' とおくと,  n = n' -1, r = r' -1$と表せるので,以下のようにもかける。
+
+\[ \binom {n'-1}{r'-1} + \binom {n'-1}{r'} = \binom {n'}{r'} \]
+
+\subsubsection{組み合わせの漸化式の証明}
+
+\begin{align*}
+&\binom nr + \binom {n}{r+1} \\
+&= \frac{n!}{r!(n-r)!} + \frac{n!}{(r+1)!(n-(r+1))!} \qquad &\text{(組み合わせの定義から)} \\
+&= \highlight[red]{$\displaystyle \frac{r+1}{r+1} $}{} \cdot \frac{n!}{r!(n-r)!} + \highlight[red]{$\displaystyle \frac{n-r}{n-r} $}{} \cdot \frac{n!}{(r+1)!(n-(r+1))!} \qquad &\text{(通分の準備)}
+\end{align*}
+
 \subsection{条件つき確率}
 
 2つの事象A,Bに対し、Aが起こった状況のもとでBが起こる条件つき確率といい、以下のように表す

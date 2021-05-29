@@ -1,0 +1,28 @@
+\expandafter\ifx\csname ifdraft\endcsname\relax
+\documentclass{jsarticle}
+\include{packages}
+\begin{document} \fi
+
+\section{剰余の定理}
+
+$P(a)をaに関する多項式とする$
+\begin{align*}
+   P(a) &= (a - k)Q(a) + R \qquad &\text{$(P(a)を(a-k)で割る)$} \\
+   ここで、a = kを代入すると \\
+   P(k) &= (k - k)Q(k) + R \\
+   P(k) &= R = 0 \\
+   よって P(a) &= (a-k)Q(a) + P(k)  \\
+   つまり P(k) &= 0 \Leftrightarrow P(a)を(a-k)で割り切れる。
+\end{align*}
+
+具体例
+
+$P(a) = a^n - b^n$とすると、$P(b) = b^n - b^n = 0$なので、$(a-b)はa^n - b^nを割り切れる$
+
+実際に、$a^n - b^n = (a - b)(\sum_{k = 0}^{n-1} a^{n-1-k}b^k)$
+
+$n = 3のとき、a^3 - b^3 = (a-b)(a^2 + ab + b^2)$
+
+    \expandafter\ifx\csname ifdraft\endcsname\relax
+\end{document}
+\fi

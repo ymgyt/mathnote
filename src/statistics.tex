@@ -1,0 +1,55 @@
+\expandafter\ifx\csname ifdraft\endcsname\relax
+
+\documentclass{jlreq}
+\include{packages}
+\include{commands}
+
+\begin{document}
+\fi
+\section{統計}
+
+\subsection{相関係数(correlation coefficient)}
+
+\paragraph{分散}
+$n個の資料x_1, x_2, \dots, x_nの分散\sigma_{x}^{2}は$
+
+\begin{gather*}
+    \sigma_{x}^2 = \frac{1}{n} \sum (x_i - \bar{x})
+\end{gather*}
+
+と定義する。偏差の2乗和。
+
+\paragraph{共分散}
+
+$2変量(x,y)をもつn個の資料(x_1, y_1), (x_2, y_2), \dots (x_n, y_n)における共分散 \sigma_{xy}は$
+
+\begin{gather*}
+    \sigma_{xy} = \frac{1}{n} \sum (x_i - \bar{x}) (y_i - \bar{y})\\
+    (ただし、\bar{x} = \frac{1}{n} \sum x_i, \bar{y} = \frac{1}{n} \sum y_i)\\
+\end{gather*}
+
+と定義する。$xの偏差とyの偏差の積の平均。$
+
+\paragraph{相関係数の定義}
+
+$2変量(x,y)を持つn個の資料を(x_1,y_1), (x_2, y_2), \dots (x_n, y_n)とする。このとき、相関係数rは$
+
+\[r = \frac{\sigma_{xy}}{\sigma_x \sigma_y}\]
+
+と定義される。$xとyの共分散を標準偏差の積で割る。$
+
+$また、分子のnとxとyの標準偏差をかけることで生まれるnが打ち消しあうので以下の定義も可能$
+
+\begin{align*}
+    r &= \frac
+        {\frac{1}{n} \sum (x_i - \bar{x})(y_i - \bar{y}) }
+        { \sqrt{\frac{1}{n} \sum (x_i - \bar{x})^2}  \sqrt{\frac{1}{n} \sum (y_i - \bar{y})^2}} \\
+      &= \frac
+        {\sum (x_i - \bar{x})(y_i - \bar{y})}
+        { \sqrt{\sum (x_i - \bar{x})^2} \sqrt{\sum (y_i - \bar{y})^2}}
+\end{align*}
+
+\paragraph{相関係数の絶対値が1以下の理由}
+
+\end{document}
+\fi

@@ -10,5 +10,5 @@
 LUALATEX = lualatex
 
 # TODO: src以下を変数化する
-note.pdf: note.tex src/memo.tex src/commands.tex src/packages.tex
+note.pdf: note.tex src/memo.tex src/commands.tex src/packages.tex src/statistics.tex
 	$(LUALATEX) $<

@@ -1,13 +1,17 @@
 \expandafter\ifx\csname ifdraft\endcsname\relax
+
 \documentclass{jsarticle}
 \include{packages}
-\begin{document} \fi
+\include{commands}
+
+\begin{document}
+\fi
 
 \section{剰余の定理}
 
 $P(a)をaに関する多項式とする$
 \begin{align*}
-   P(a) &= (a - k)Q(a) + R \qquad &\text{$(P(a)を(a-k)で割る)$} \\
+   P(a) &= (a - k)Q(a) + R \comment{P(a)を(a-k)で割る} \\
    ここで、a = kを代入すると \\
    P(k) &= (k - k)Q(k) + R \\
    P(k) &= R = 0 \\
@@ -23,6 +27,20 @@ $P(a) = a^n - b^n$とすると、$P(b) = b^n - b^n = 0$なので、$(a-b)はa^n 
 
 $n = 3のとき、a^3 - b^3 = (a-b)(a^2 + ab + b^2)$
 
-    \expandafter\ifx\csname ifdraft\endcsname\relax
+
+
+\section{$-1 \times -1 = 1の証明$}
+
+\begin{align*}
+    -1 + 1 &= 0                           \comment{マイナスの定義 -a + a = 0} \\
+    -1 \times ( -1 + 1) &= -1 \times 0    \comment{-1をかける}\\
+    (-1) \times (-1) + (-1) \times 1 &= 0 \comment{分配法則と、a \times 0 = 0} \\
+    (-1) \times (-1) + (-1) &= 0          \comment{a \times 1 = a} \\
+    (-1) \times (-1) &= 1                 \comment{両辺に1を足す}
+\end{align*}
+
+
+
+\expandafter\ifx\csname ifdraft\endcsname\relax
 \end{document}
 \fi

@@ -1,8 +1,14 @@
-LATEX = platex
-PDF = dvipdfmx
+#LATEX = platex
+#PDF = dvipdfmx
+#
+#note.pdf: note.dvi
+#	$(PDF) note
+#
+#note.dvi: note.tex src/memo.tex
+#	$(LATEX) $<
 
-note.pdf: note.dvi
-	$(PDF) note
+LUALATEX = lualatex
 
-note.dvi: note.tex src/memo.tex
-	$(LATEX) $<
+# TODO: src以下を変数化する
+note.pdf: note.tex src/memo.tex src/commands.tex src/packages.tex
+	$(LUALATEX) $<

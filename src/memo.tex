@@ -1,6 +1,7 @@
 \expandafter\ifx\csname ifdraft\endcsname\relax
 
-\documentclass{jsarticle}
+%\documentclass{jsarticle}
+\documentclass{ltjsarticle}
 \include{packages}
 \include{commands}
 
@@ -14,7 +15,7 @@ $P(a)をaに関する多項式とする$
    P(a) &= (a - k)Q(a) + R \comment{P(a)を(a-k)で割る} \\
    ここで、a = kを代入すると \\
    P(k) &= (k - k)Q(k) + R \\
-   P(k) &= R = 0 \\
+   P(k) &= R \\
    よって P(a) &= (a-k)Q(a) + P(k)  \\
    つまり P(k) &= 0 \Leftrightarrow P(a)を(a-k)で割り切れる。
 \end{align*}
@@ -38,8 +39,6 @@ $n = 3のとき、a^3 - b^3 = (a-b)(a^2 + ab + b^2)$
     (-1) \times (-1) + (-1) &= 0          \comment{a \times 1 = a} \\
     (-1) \times (-1) &= 1                 \comment{両辺に1を足す}
 \end{align*}
-
-
 
 \expandafter\ifx\csname ifdraft\endcsname\relax
 \end{document}

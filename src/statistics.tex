@@ -32,7 +32,9 @@ $2変量(x,y)をもつn個の資料(x_1, y_1), (x_2, y_2), \dots (x_n, y_n)に�
 
 \paragraph{相関係数の定義}
 
-$2変量(x,y)を持つn個の資料を(x_1,y_1), (x_2, y_2), \dots (x_n, y_n)とする。このとき、相関係数rは$
+$2変量(x,y)を持つn個の資料を(x_1,y_1), (x_2, y_2), \dots (x_n, y_n)とする。$
+
+このとき、相関係数rは
 
 \[r = \frac{\sigma_{xy}}{\sigma_x \sigma_y}\]
 
@@ -43,13 +45,47 @@ $また、分子のnとxとyの標準偏差をかけることで生まれるnが
 \begin{align*}
     r &= \frac
         {\frac{1}{n} \sum (x_i - \bar{x})(y_i - \bar{y}) }
-        { \sqrt{\frac{1}{n} \sum (x_i - \bar{x})^2}  \sqrt{\frac{1}{n} \sum (y_i - \bar{y})^2}} \\
+        {\sqrt{\frac{1}{n} \sum (x_i - \bar{x})^2} \sqrt{\frac{1}{n} \sum (y_i - \bar{y})^2}} \\
       &= \frac
         {\sum (x_i - \bar{x})(y_i - \bar{y})}
-        { \sqrt{\sum (x_i - \bar{x})^2} \sqrt{\sum (y_i - \bar{y})^2}}
+        {\sqrt{\sum (x_i - \bar{x})^2} \sqrt{\sum (y_i - \bar{y})^2}}
 \end{align*}
 
-\paragraph{相関係数の絶対値が1以下の理由}
+\paragraph{相関係数の絶対値が1以下の証明}
+
+$相関係数rが -1 \leq r \leq 1となることを証明する。$
+
+\begin{align*}
+    \intertext{まず}
+    x_i - \bar{x} &= a_i &   y_i - \bar{y} &= b_i  & a_i b_i &= c_i \\
+    \sum {a_i}^2 &= A    &  \sum {b_i}^2 &= B      & \sum a_i b_i &= C \\
+    \intertext{とおくと}
+\end{align*}
+\begin{align*}
+    -1 &\leq r \leq 1 \\
+    -1 &\leq \frac {C}{\sqrt{A} \sqrt{B}} \leq 1 \\
+    -c &\leq x \leq c \leftrightarrow x^2 \leq c^2 なので \\
+    &(\frac{C}{\sqrt{A}\sqrt{B}})^2 \leq 1^2 \\
+    &\frac{C^2}{AB} \leq 1 \\
+    &C^2 \leq AB \qquad(AB \geq 0) \\
+    &C^2 - AB \leq 0 \\
+    &AB - C^2 \geq 0
+    \intertext{のように変形できるのでこれを証明する}
+    \intertext{ここで以下の関数を考える}
+    f(x) &= \sum (a_i x - b_i)^2 \\
+    &= \sum ({a_i}^2 x^2 -2a_i b_i x + {b_i}^2) \\
+    &= \sum {a_i}^2 x^2 -2(\sum a_i b_i) + \sum {b_i}^2 \\
+    &= Ax^2 -2Cx + B
+    \intertext{これを平方完成すると}
+    &= A(x^2 - \frac{2C}{A}x) + B \\
+    &= A\{ (x - \frac{C}{A})^2 \} - \frac{C^2}{A} + B \\
+    &= A\{ (x - \frac{C}{A})^2 \} + \frac{AB - C^2}{A} \\
+    \intertext{f(x)は2乗の和なので、f(x) \geq 0}
+    \intertext{$x = \dfrac{C}{A}のときf(x)は最小値 \dfrac{AB - C^2}{A}をとるので$}
+    \frac{AB - C^2}{A} &\geq 0 \\
+    AB - C^2 &\geq 0 \qquad (A \geq 0)
+    \intertext{となり、証明できた。}
+\end{align*}
 
 \end{document}
 \fi
